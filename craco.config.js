@@ -10,6 +10,7 @@ module.exports = {
       store: resolve("src/store"),
       services: resolve("src/services"),
       pages: resolve("src/pages"),
+      layout: resolve("src/layout"),
       utils: resolve("src/utils"),
     },
   },

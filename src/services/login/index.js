@@ -1,8 +1,15 @@
 import request from "services";
 
-export function getData() {
-  request.get({
-    url: "/test",
+export function doLogin(data) {
+  return request.post({
+    url: "/user/doLogin",
+    data,
   });
-  console.log(request);
+}
+
+export function register(data) {
+  return request.post({
+    url: "/user/register",
+    data,
+  });
 }

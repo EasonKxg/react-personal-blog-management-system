@@ -1,4 +1,6 @@
 import axios from "axios";
+import { message } from "antd";
+import baseURL from "./config";
 
 class Request {
   constructor(baseURL, timeout) {
@@ -6,12 +8,31 @@ class Request {
       baseURL,
       timeout,
     });
-    this.instance.interceptors.response.use(
+    this.instance.interceptors.request.use(
       (res) => {
-        return res.data;
+        return res;
       },
       (err) => {
         return err;
+      }
+    );
+
+    this.instance.interceptors.response.use(
+      (res) => {
+        const { data } = res;
+        switch (data.code) {
+          case 200:
+            message.success(data.msg);
+            break;
+        }
+        return data;
+      },
+      (err) => {
+        const { data } = err.response;
+        if (data.code !== 200) {
+          message.error(data.msg);
+        }
+        return err.response;
       }
     );
   }
@@ -21,13 +42,13 @@ class Request {
   }
 
   get(config) {
-    return this.request({ ...config, method: "get" });
+    return this.request({ ...config, method: "GET" });
   }
 
   post(config) {
-    return this.request({ ...config, method: "post" });
+    return this.request({ ...config, method: "POST" });
   }
 }
 
-const request = new Request("http://localhost:8000");
+const request = new Request(baseURL);
 export default request;
