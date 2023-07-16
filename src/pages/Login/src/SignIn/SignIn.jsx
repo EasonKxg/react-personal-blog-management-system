@@ -14,8 +14,8 @@ const SignIn = memo((props) => {
   const { Search } = Input;
 
   const [req, setReq] = useState({
-    name: "",
-    password: "",
+    name: "kxg",
+    password: "123456",
   });
 
   useEffect(() => {

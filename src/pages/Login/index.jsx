@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState } from "react";
 import SignIn from "./src/SignIn/SignIn";
 import Retrieve from "./src/Retrieve/Retrieve";
 import Forget from "./src/Forget/Forget";
@@ -6,7 +6,6 @@ import Additional from "./src/Additional/Additional";
 import { LoginStyleWrap } from "./style";
 
 const index = memo(() => {
- 
   const [loginReq, setLoginReq] = useState({
     name: "",
     password: "",

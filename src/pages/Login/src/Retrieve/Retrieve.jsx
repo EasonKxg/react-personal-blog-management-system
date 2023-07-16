@@ -18,12 +18,11 @@ const Retrieve = memo((props) => {
     if (req.password !== req.asswordAgain) {
       return message.error("输入的密码不一致");
     }
-    if (loginClick) loginClick(req, 1);
-    // const data = await register(req);
-    // if (data.code === 200) {
-    //   // 登录 携带数据
-    //   if (loginClick) loginClick(req);
-    // }
+    const data = await register(req);
+    if (data.code === 200) {
+      // 登录 携带数据
+      if (loginClick) loginClick(req, 1);
+    }
   }
 
   return (
