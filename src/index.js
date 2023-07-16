@@ -16,12 +16,12 @@ const root = ReactDom.createRoot(document.getElementById("root"));
 root.render(
   <Suspense fallback={<Loading />}>
     <Provider store={store}>
-      {/* <ThemeProvider theme={Theme}> */}
-      <HashRouter>
-        {/* {isLoading && <Loading />} */}
-        <App />
-      </HashRouter>
-      {/* </ThemeProvider> */}
+      <ThemeProvider theme={Theme}>
+        <HashRouter>
+          {/* {isLoading && <Loading />} */}
+          <App />
+        </HashRouter>
+      </ThemeProvider>
     </Provider>
   </Suspense>
 );

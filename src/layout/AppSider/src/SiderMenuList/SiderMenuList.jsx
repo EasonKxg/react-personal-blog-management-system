@@ -6,12 +6,14 @@ import { MenuListStyleWrap } from "./style";
 
 const SiderMenuList = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [width, setWidth] = useState("200px");
   const changeToggleCollapsed = () => {
     setCollapsed(!collapsed);
     console.log(collapsed);
+    setWidth(!collapsed ? "80px" : "200px");
   };
   return (
-    <MenuListStyleWrap width="30">
+    <MenuListStyleWrap width={width}>
       <div className="togglec-collapsed-wrap">
         <div onClick={changeToggleCollapsed}>
           {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}

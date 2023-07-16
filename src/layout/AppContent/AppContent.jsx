@@ -1,9 +1,13 @@
-import React, { memo } from 'react'
+import React, { memo } from "react";
+import { Outlet } from "react-router-dom";
+import { ContentStyleWrap } from "./style";
 
 const Content = memo(() => {
   return (
-    <div>Content</div>
-  )
-})
+    <ContentStyleWrap>
+      <Outlet />
+    </ContentStyleWrap>
+  );
+});
 
-export default Content
+export default Content;

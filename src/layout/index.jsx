@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import { Outlet } from "react-router-dom";
 import AppSider from "./AppSider/AppSider";
 import AppContent from "./AppContent/AppContent";
 import AppHeader from "./AppHeader/AppHeader";
