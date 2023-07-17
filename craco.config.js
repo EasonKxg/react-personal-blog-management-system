@@ -11,6 +11,7 @@ module.exports = {
       services: resolve("src/services"),
       pages: resolve("src/pages"),
       layout: resolve("src/layout"),
+      global: resolve("src/global"),
       utils: resolve("src/utils"),
     },
   },

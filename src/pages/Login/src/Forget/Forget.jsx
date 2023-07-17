@@ -1,5 +1,5 @@
 import React, { memo, useState } from "react";
-import { Button, Input, Spin } from "antd";
+import { Button, Input } from "antd";
 import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
 import { ForgetStyleWrap } from "./style";
 

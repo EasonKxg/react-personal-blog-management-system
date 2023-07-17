@@ -6,6 +6,7 @@ const Layout = lazy(() => import("layout/index"));
 const Account = lazy(() => import("pages/Account/Account"));
 const Label = lazy(() => import("pages/Label/Label"));
 const Article = lazy(() => import("pages/Article/Article"));
+const LeaveMsg = lazy(() => import("pages/LeaveMsg/LeaveMsg"));
 // const Home = lazy(() => import("pages/Home/Home"));
 const NotFound = lazy(() => import("pages/NotFound/NotFound"));
 // {
@@ -32,6 +33,10 @@ const routes = [
       {
         path: "article",
         element: <Article />,
+      },
+      {
+        path: "leaveMsg",
+        element: <LeaveMsg />,
       },
     ],
   },

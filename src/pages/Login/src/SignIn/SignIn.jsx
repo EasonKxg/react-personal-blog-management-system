@@ -29,9 +29,10 @@ const SignIn = memo((props) => {
       return message.error("账号或者密码不能为空");
     }
     const data = await doLogin(req);
+    console.log(data, "data");
     if (data.code === 200) {
       dispatch(changeUserInfo(data.data));
-      navigate("/layout");
+      navigate("/account");
     }
   }
 

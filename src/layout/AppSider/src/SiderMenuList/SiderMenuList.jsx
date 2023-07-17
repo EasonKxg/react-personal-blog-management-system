@@ -1,17 +1,26 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu } from "antd";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import menuList from "../../../../global/menuDataList";
+import menuList from "global/menuDataList";
 import { MenuListStyleWrap } from "./style";
 
 const SiderMenuList = () => {
+  const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [width, setWidth] = useState("200px");
-  const changeToggleCollapsed = () => {
+  const [actvePath, setActvePath] = useState("/account");
+  function handleMenuClick(item) {
+    const path = item["key"];
+    navigate(path);
+    setActvePath(path);
+  }
+
+  function changeToggleCollapsed() {
     setCollapsed(!collapsed);
-    console.log(collapsed);
     setWidth(!collapsed ? "80px" : "200px");
-  };
+  }
+
   return (
     <MenuListStyleWrap width={width}>
       <div className="togglec-collapsed-wrap">
@@ -20,11 +29,12 @@ const SiderMenuList = () => {
         </div>
       </div>
       <Menu
-        defaultSelectedKeys={["1"]}
+        onClick={handleMenuClick}
+        defaultSelectedKeys={[actvePath]}
         mode="inline"
         inlineCollapsed={collapsed}
         items={menuList}
-      />
+      ></Menu>
     </MenuListStyleWrap>
   );
 };

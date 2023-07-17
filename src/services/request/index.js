@@ -20,10 +20,8 @@ class Request {
     this.instance.interceptors.response.use(
       (res) => {
         const { data } = res;
-        switch (data.code) {
-          case 200:
-            message.success(data.msg);
-            break;
+        if (data.code === 200) {
+          message.success(data.msg);
         }
         return data;
       },

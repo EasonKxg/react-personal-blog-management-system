@@ -1,4 +1,4 @@
-import { ContainerOutlined, DesktopOutlined } from "@ant-design/icons";
+import { ContainerOutlined, UsergroupAddOutlined } from "@ant-design/icons";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -10,9 +10,10 @@ function getItem(label, key, icon, children, type) {
   };
 }
 const menuList = [
-  getItem("账号管理", "1", <DesktopOutlined />),
-  getItem("标签管理", "2", <ContainerOutlined />),
-  getItem("文章管理", "3", <ContainerOutlined />),
+  getItem("账号管理", "/account", <UsergroupAddOutlined />),
+  getItem("标签管理", "/label", <ContainerOutlined />),
+  getItem("文章管理", "/article", <ContainerOutlined />),
+  getItem("留言管理", "/leaveMsg", <ContainerOutlined />),
 ];
 
 export default menuList;
