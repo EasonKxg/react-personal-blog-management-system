@@ -5,7 +5,9 @@ import { ContentStyleWrap } from "./style";
 const Content = memo(() => {
   return (
     <ContentStyleWrap>
-      <Outlet />
+      <div className="content">
+        <Outlet />
+      </div>
     </ContentStyleWrap>
   );
 });

@@ -10,7 +10,7 @@ const Header = memo(() => {
       userInfo: state.loginModule.userInfo,
     };
   }, shallowEqual);
-  console.log(userInfo, "userInfo");
+  // console.log(userInfo, "userInfo");
   return (
     <HeaderStyleWrap>
       <Avatar size="small" icon={<UserOutlined />} />
