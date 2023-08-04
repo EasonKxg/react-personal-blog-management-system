@@ -12,3 +12,10 @@ export function labelInsert(data) {
     data,
   });
 }
+
+export function dellabel(data) {
+  return request.delete({
+    url: "/label/delete",
+    data,
+  });
+}

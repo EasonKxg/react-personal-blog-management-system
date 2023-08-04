@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { Input, Button, Table, message } from "antd";
-import { labelInsert } from "services/label";
+import { labelInsert, dellabel } from "services/label";
 import { feachlabelDataAction } from "store/modules/label";
 import { LabelStyleWrap } from "./style";
 
@@ -33,6 +33,18 @@ const Label = memo(() => {
       title: "创建时间",
       dataIndex: "createAt",
     },
+    {
+      title: "操作",
+      render: (_, record) => {
+        return (
+          <>
+            <Button type="text" onClick={(evt) => handleRowDelClick(record)}>
+              删除
+            </Button>
+          </>
+        );
+      },
+    },
   ];
 
   async function handleSaveLabelClick() {
@@ -40,8 +52,17 @@ const Label = memo(() => {
       return message.error("请输入标签");
     }
     const data = await labelInsert(req);
-    
+    disptach(feachlabelDataAction());
   }
+
+  async function handleRowDelClick(row) {
+    const req = {
+      id: row.id,
+    };
+    const data = await dellabel(req);
+    disptach(feachlabelDataAction());
+  }
+
   return (
     <LabelStyleWrap>
       <div className="top-wrap">

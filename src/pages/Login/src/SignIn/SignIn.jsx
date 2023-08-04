@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button, Input, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { changeToken } from "store/modules/main";
 import { changeUserInfo } from "store/modules/login";
 import { doLogin } from "services/login";
 
@@ -20,7 +21,9 @@ const SignIn = memo((props) => {
 
   useEffect(() => {
     const data = JSON.parse(JSON.stringify(loginReq));
-    setReq(data);
+    if (data["name"]) {
+      setReq(data);
+    }
     // console.log(req, "req");
   }, [loginReq]);
 
@@ -29,9 +32,11 @@ const SignIn = memo((props) => {
       return message.error("账号或者密码不能为空");
     }
     const data = await doLogin(req);
-    console.log(data, "data");
     if (data.code === 200) {
+      dispatch(changeToken(data.data.token));
       dispatch(changeUserInfo(data.data));
+      window.localStorage.setItem("token", data.data.token);
+
       navigate("/account");
     }
   }
